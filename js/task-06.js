@@ -1,14 +1,17 @@
 const inputEl = document.querySelector("#validation-input")
 
+
 inputEl.addEventListener("blur", checkInputLength)
 
 function checkInputLength(event) {
     
-    const inputLength = inputEl.getAttribute('data-length')
-    const minimalValue = event.currentTarget.value;
+    const minInputLength = inputEl.dataset.length;
+    const currentInputValue = (event.currentTarget.value).length;
 
-    if (inputLength >= minimalValue.length) {
-        invalidInputLength(); 
+
+
+    if (minInputLength >= currentInputValue) {
+        invalidInputLength();
     }
     else {
         validInputLength();
@@ -16,8 +19,8 @@ function checkInputLength(event) {
 }
 
 function validInputLength () { 
-    inputEl.classList.remove('invalid')
-    inputEl.classList.add('valid')
+
+    inputEl.classList.replace('invalid', 'valid')
 }
 
 function invalidInputLength () { 
