@@ -11,32 +11,28 @@ refs.destroyBtn.addEventListener('click', destroyBoxes)
 refs.inputEl.addEventListener('input', getAmount)
 
 let inputAmount = null;
-let array = [];
-let baseWidth = 30;
-let baseHeight = 30;
+
+function getAmount(event) { 
+  inputAmount = event.target.value;
+}
 
 
 function createBoxes() {
-  divCollectionMaker();
-  refs.containerEl.insertAdjacentHTML('afterbegin', array.join(''));
+  const array = [];
+  let baseWidth = 20;
+  let baseHeight = 20;
+    for (let i = 0; i < inputAmount; i++) { 
+      array.push(`<div style="background-color:${getRandomHexColor()}; width:${baseWidth +=10}px; height:${baseHeight+=10}px"></div>`)
+    }
+
+  refs.containerEl.innerHTML =  array.join('');
 }
 
 function destroyBoxes() { 
   refs.containerEl.innerHTML = '';
 }
 
-function getAmount(event) { 
-  inputAmount = event.currentTarget.value;
-}
-
-function divCollectionMaker() { 
-    for (let i = 0; i < inputAmount; i++) { 
-      baseHeight += 10;
-      baseWidth += 10;
-      array.push(`<div style="background-color:${getRandomHexColor()};width:${baseWidth}px; height:${baseHeight}px"></div>`)
-  }
-}
-
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
+
