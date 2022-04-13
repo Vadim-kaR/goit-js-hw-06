@@ -6,7 +6,7 @@ const refs = {
   containerEl: document.querySelector('#boxes'),
 };
 
-refs.createBtn.addEventListener('click', createBoxes)
+refs.createBtn.addEventListener('click', () => createBoxes(refs.inputEl.value))
 refs.destroyBtn.addEventListener('click', destroyBoxes)
 refs.inputEl.addEventListener('input', getAmount)
 
@@ -21,7 +21,7 @@ function getAmount(event) {
 function createBoxes(amount) {
   
   let array = [];
-    for (let i = 0; i < inputAmount; i++) { 
+    for (let i = 0; i < amount; i++) { 
       array.push(`<div style="background-color:${getRandomHexColor()}; width:${baseWidth +=10}px; height:${baseHeight+=10}px"></div>`)
     }
 
