@@ -14,8 +14,11 @@ function checkInputLength(event) {
     }
 }
 
-function validInputLength () { 
-    inputEl.classList.replace('invalid', 'valid')
+function validInputLength() { 
+
+    inputEl.classList.remove('invalid')
+    inputEl.classList.add('valid')
+    
 }
 
 function invalidInputLength () { 
