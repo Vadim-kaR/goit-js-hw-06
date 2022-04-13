@@ -8,23 +8,15 @@ const refs = {
 
 refs.createBtn.addEventListener('click', () => createBoxes(refs.inputEl.value))
 refs.destroyBtn.addEventListener('click', destroyBoxes)
-refs.inputEl.addEventListener('input', getAmount)
 
-let inputAmount = null;
 let baseWidth = 20;
 let baseHeight = 20;
 
-function getAmount(event) { 
-  inputAmount = event.target.value;
-}
-
 function createBoxes(amount) {
-  
   let array = [];
     for (let i = 0; i < amount; i++) { 
       array.push(`<div style="background-color:${getRandomHexColor()}; width:${baseWidth +=10}px; height:${baseHeight+=10}px"></div>`)
     }
-
   refs.containerEl.insertAdjacentHTML('beforeend', array.join(''));
 }
 
